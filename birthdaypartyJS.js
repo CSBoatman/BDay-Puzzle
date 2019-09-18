@@ -4,14 +4,18 @@
 
 var guestNames = ["John","Rose","Dave","Jade","Jane","Roxy","Dirk","Jake","Mom","Dad"];
 
+var usedNames = [];
+
 //name, address, how many presents
 class Partygoer {
 	constructor(name, address) {
+		// idk why this is only assigning four names
 		for(let i = 0; i < guestNames.length; i++){
-			this.name = guestNames[i];
+			this.name = guestNames.shift();
+			usedNames.push(this.name);
 		};
 		this.address = address;
-		this.presents = Math.floor(Math.random() * 5) + 1;
+		this.presents = Math.floor(Math.random() * 5 + 1);
 	}
 }
 
@@ -24,15 +28,15 @@ class Present {
 		} else if(wrapped <= 0) {
 			this.type = "bagged";
 		}
-		this.cost = "$" + Math.floor(Math.random() * 21);
+		this.cost = "$" + Math.floor(Math.random() * (101 - 1) + 1);
 	}
 }
 
 function bdayparty(){
 	var guests = [];
 	for(let i = 0; i < 10; i++){
-		let guest = new Partygoer("name","partyA");
-		guests.push(guest);
+		let person = new Partygoer("name","partyA");
+		guests.push(person);
 	}
 	return guests;
 }
@@ -40,8 +44,8 @@ function bdayparty(){
 function bdaygifts(){
 	var gifts = [];
 	for(let i = 0; i < 10; i++){
-		let gift = new Present("type","$");
-		gifts.push(gift);
+		let goodie = new Present("type","cost");
+		gifts.push(goodie);
 	}
 	return gifts;
 }
@@ -50,3 +54,6 @@ var partyA = bdayparty();
 var giftsA = bdaygifts();
 console.log(partyA);
 console.log(giftsA);
+
+// lets us see that it is running through all names in the original array
+console.log(usedNames);
