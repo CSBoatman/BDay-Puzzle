@@ -25,7 +25,7 @@ class Present {
 		} else if(wrapped <= 0) {
 			this.type = "bagged";
 		};
-		this.cost = "$" + Math.floor(Math.random() * (101 - 1) + 1);
+		this.cost = "$" + Math.floor(Math.random() * (51 - 1) + 1);
 	};
 };
 
@@ -33,9 +33,9 @@ class Present {
 var guests = [];
 
 //for loop to add attendees to guest list
-for(let i = 0; i < 10; i++){
-	let person = new Partygoer("Home");
-	guests.push(person);
+for(let i = 0; i < guestNames.length; i++){
+	let attendee = new Partygoer("Home");
+	guests.push(attendee);
 };
 
 //empty array list to hold gift information
