@@ -12,20 +12,20 @@ class Partygoer {
 		this.name = guestNames.shift();
 		usedNames.push(this.name);
 		this.address = address;
-		this.presents = Math.floor(Math.random() * 5 + 1);
+		this.presents = Math.round(Math.random() * 5);
 	};
 };
 
 //class to create Present(s) with a type and cost
 class Present {
 	constructor() {
-		var wrapped = Math.floor(Math.random() * 2);
+		var wrapped = Math.round(Math.random() * 1);
 		if(wrapped > 0){
 			this.type = "wrapped";
 		} else if(wrapped <= 0) {
 			this.type = "bagged";
 		};
-		this.cost = "$" + Math.floor(Math.random() * (51 - 1) + 1);
+		this.cost = "$" + Math.round(Math.random() * 50);
 	};
 };
 
